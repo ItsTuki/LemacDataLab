@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -13,8 +14,8 @@ android {
         applicationId = "com.losk.lemacdatalab"
         minSdk = 33
         targetSdk = 37
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.1-mvp"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -50,8 +51,10 @@ dependencies {
 
     // Dependencias añadidas para LemacDataLab (Navegación y ViewModel)
     implementation("androidx.navigation:navigation-compose:2.8.0")
+    implementation("androidx.compose.animation:animation") // transiciones de navegación (versión por el BOM de Compose)
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.5")
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.5")
+    implementation("androidx.work:work-runtime-ktx:2.12.0")
 
     // Testing
     testImplementation(libs.junit)
@@ -59,6 +62,11 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
+
+    // Room (SQLite): Entity + DAO + Database. KSP genera el código de los DAO.
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
 
     // Debug
     debugImplementation(libs.androidx.compose.ui.tooling)

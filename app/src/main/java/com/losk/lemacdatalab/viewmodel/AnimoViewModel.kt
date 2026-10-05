@@ -4,7 +4,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
-import com.losk.lemacdatalab.model.RegistroAnimoEntity
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -16,6 +15,14 @@ data class AnimoUiState(
     val errorMensaje: String? = null,
     val registroExitoso: Boolean = false
 )
+
+
+
+
+
+
+
+
 
 class AnimoViewModel : ViewModel() {
     var uiState by mutableStateOf(AnimoUiState())
