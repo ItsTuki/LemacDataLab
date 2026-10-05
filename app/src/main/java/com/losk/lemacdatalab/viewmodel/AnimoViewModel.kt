@@ -17,6 +17,14 @@ data class AnimoUiState(
     val registroExitoso: Boolean = false
 )
 
+
+
+
+
+
+
+
+
 class AnimoViewModel : ViewModel() {
     var uiState by mutableStateOf(AnimoUiState())
         private set
