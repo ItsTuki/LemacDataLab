@@ -1,66 +1,92 @@
-# 📱 LemacDataLab - App Móvil de Autorregistro y Seguimiento Personal
+# Lemac DataLab — MVP Android
 
-![Estado](https://img.shields.io/badge/Estado-MVP_Académico-blue)
-![Plataforma](https://img.shields.io/badge/Plataforma-Android-green)
-![Asignatura](https://img.shields.io/badge/Asignatura-DSY1105-orange)
+Aplicación académica de autorregistro en Neurodesarrollo, Habilidades DBT, Estado de ánimo y Adicciones. Android con Kotlin, Jetpack Compose, ViewModel, SQLite y WorkManager; API de prueba en Python con SQLite.
 
-Este proyecto es un Producto Mínimo Viable (MVP) académico desarrollado para la asignatura DSY1105 Desarrollo de Aplicaciones Móviles, en colaboración con el socio formador **Lemac DataLab**. 
+## Funciones disponibles
 
-El objetivo principal es entregar un producto móvil orientado a que las personas usuarias puedan acceder a herramientas de registro, organización y seguimiento personal.
+- Crear cuentas con alias de prueba, iniciar y cerrar sesión; separación de registros entre cuentas.
+- Registrar los cuatro ámbitos, consultar historial por fechas/ámbito y editar o eliminar registros propios.
+- Consultar evolución de la intensidad del ánimo y resúmenes de actividad.
+- Crear objetivos de prueba y consultar su avance a partir de registros asociados.
+- Consultar recursos, habilidades DBT, estrategias y acciones protectoras.
+- Administrar contenidos y el parámetro de categorías de ánimo con el rol de responsable.
+- Configurar recordatorios discretos con frecuencia y horario.
+- Guardar sin conexión, vincular la API y sincronizar cambios en segundo plano, incluidos los borrados.
 
----
+## Abrir y compilar
 
-## 📖 ¿Qué hace el proyecto?
+Abre esta carpeta como proyecto en Android Studio. Conserva el wrapper Gradle y las versiones ya configuradas en el proyecto: SDK 37, Android Gradle Plugin 9.3.3 y Gradle 9.5.0. Android mínimo: API 33.
 
-La aplicación consolida en un punto único, simple y accesible desde el dispositivo móvil, los registros y recursos de autocuidado que normalmente se encuentran fragmentados en notas y aplicaciones separadas. 
+Android Studio utiliza su JDK incluido. En un terminal PowerShell puedes usar:
 
-La aplicación se centra en cuatro ámbitos principales:
-1. **Neurodesarrollo**.
-2. **Habilidades DBT** (terapia dialéctico-conductual).
-3. **Estado de ánimo**.
-4. **Adicciones**.
+```powershell
+$env:JAVA_HOME = 'C:/Program Files/Android/Android Studio/jbr'
+.\gradlew.bat :app:assembleDebug :app:testDebugUnitTest :app:lintDebug
+```
 
-A través de esta plataforma, el usuario puede iniciar y completar registros breves, consultar herramientas pertinentes, revisar antecedentes previos y mantener una visión ordenada de su propia actividad.
+El APK se genera en `app/build/outputs/apk/debug/app-debug.apk`.
 
-> **⚠️ Importante:** Este MVP académico utiliza exclusivamente datos ficticios o sintéticos. No sustituye la atención profesional, no emite diagnósticos, no indica tratamientos ni funciona como un servicio de urgencia.
+## Cuentas sintéticas
 
-## 🎯 ¿Para quién va dirigido?
+| Alias | Contraseña de demostración | Rol |
+| --- | --- | --- |
+| demo | Demo12345! | Usuario |
+| contenidos_demo | Demo12345! | Responsable de contenidos |
 
-El sistema define los siguientes perfiles involucrados:
+Las cuentas existen en la app y en la API. Al crear una cuenta nueva en la app se asigna rol de usuario. No se solicita correo ni información personal real.
 
-- **Usuario final:** Persona que necesita realizar, de manera rápida y repetible, registros de autorreporte diarios o frente a eventos específicos.
-- **Responsable de contenidos:** Encargado de administrar catálogos, textos educativos, ejercicios y parámetros generales.
-- **Administración/operación:** Encargado de gestionar los accesos de prueba, la disponibilidad del servicio y el soporte funcional.
-- **Equipo académico de desarrollo:** Administradores técnicos del MVP.
+## API de prueba
 
-## ✨ Características Principales por Módulo
+Python 3.10 o posterior, sin dependencias externas:
 
-- 🧠 **Módulo de Neurodesarrollo:** Permite registrar rutinas, organización de tareas, situaciones de sobrecarga o autorregulación y las estrategias utilizadas por el usuario.
-- 🧘 **Módulo DBT:** Funciona como un registro tipo diario de habilidades practicadas, emociones o situaciones asociadas y la utilidad percibida, permitiendo además consultar contenidos psicoeducativos.
-- 📊 **Módulo de Ánimo:** Facilita la realización de check-ins de estado de ánimo, evaluando intensidad y contexto, con la opción de añadir una nota.
-- 🛑 **Módulo de Adicciones:** Permite registrar impulsos (craving), desencadenantes, acciones protectoras y el cumplimiento de objetivos personales de prueba.
+```powershell
+python .\backend\api.py
+```
 
-**Funciones Transversales:**
-- Revisión de historial y consulta de resúmenes de uso.
-- Configuración de recordatorios discretos mediante notificaciones.
-- Corrección o eliminación de los propios registros por parte del usuario.
-- Persistencia local de registros ante interrupciones de conectividad y posterior sincronización.
+Escucha en `http://127.0.0.1:8080`. La base de prueba se crea en `backend/lemac-demo.sqlite3`. Puedes elegir otro archivo mediante `--db ruta.sqlite3`. Comprueba el servicio abriendo `http://127.0.0.1:8080/health`.
 
-## 🛠️ Especificaciones Técnicas
+En la app abre **Perfil → API de prueba**, indica la URL y la contraseña de la misma cuenta de prueba, y pulsa **Vincular API**:
 
-- **Plataforma Principal:** Desarrollo enfocado inicialmente en dispositivos Android, adaptándose a distintos tamaños de pantalla.
-- **Arquitectura:** Separación clara entre la interfaz móvil y los datos/servicios, mediante conexión a una API de prueba.
-- **Integraciones:** Servicios de autenticación para usuarios de prueba, catálogos/contenidos, almacenamiento/sincronización y un motor de notificaciones.
-- **Privacidad y Accesibilidad:** Minimización de datos desde el diseño, controles claros, tipografía legible y contraste adecuado.
+- Emulador de Android Studio: `http://10.0.2.2:8080`.
+- Teléfono Android por USB: ejecuta `adb reverse tcp:8080 tcp:8080` y usa `http://127.0.0.1:8080`.
+- Servidor de prueba remoto: utiliza HTTPS. HTTP está restringido a los hosts locales anteriores.
 
-## 👨‍💻 Equipo de Desarrollo
+La app funciona localmente antes de vincular la API. Al vincular, inicia sesión en el servidor o crea allí la cuenta si no existe. Un alias ya registrado en el servidor requiere su contraseña correspondiente.
 
-Este proyecto ha sido diseñado y desarrollado colaborativamente por:
+Después de vincular, los cambios se sincronizan al recuperar conexión y con WorkManager. También puedes pulsar **Sincronizar ahora**. Los cambios permanecen pendientes si la API está apagada. El token del servidor vence a las 24 horas; vuelve a vincular si se solicita. Cerrar sesión conserva tus datos locales y elimina el token del dispositivo.
 
-- Anibal Romero
-- Luis Ahumada
-- Sebastián Cortes
-- Cristian Villavicencio
+## Recursos y parámetros
 
----
-*Documentación basada en las especificaciones del caso DSY1105 - LemacDataLab.*
+Entra como **contenidos_demo** y abre **Recursos** para crear o editar textos, ejercicios y entradas de catálogo. El recurso **Categorías de ánimo** permite modificar las opciones del check-in: escribe una categoría por línea. Los cambios locales quedan pendientes hasta sincronizar con la API.
+
+El catálogo incluido contiene ejemplos sintéticos de demostración. El material institucional autorizado puede incorporarse con el editor de contenidos.
+
+## Recordatorios
+
+En **Perfil** configura horario, frecuencia y ámbito; pulsa **Activar / guardar** y permite las notificaciones. La app muestra un aviso genérico y lo oculta en la pantalla bloqueada. Al tocarlo se abre el ámbito elegido. La programación es aproximada y Android puede retrasarla por ahorro de batería.
+
+## Pruebas
+
+API HTTP:
+
+```powershell
+Push-Location .\backend
+python -m unittest -v test_api
+Pop-Location
+```
+
+Con la API activa en el puerto 8080 y un emulador conectado:
+
+```powershell
+.\gradlew.bat :app:connectedDebugAndroidTest
+```
+
+La suite Android verifica SQLite, aislamiento de cuentas, confirmación de revisiones, objetivos eliminados, el recorrido de interfaz, sincronización real y notificaciones discretas. El test de sincronización necesita acceder al host del emulador por `10.0.2.2`.
+
+## Diseño y alcance
+
+Consulta [la matriz de requisitos, arquitectura y decisiones](docs/IMPLEMENTACION.md). El código no contiene credenciales productivas; las credenciales indicadas arriba son exclusivas del entorno sintético de demostración. Este MVP utiliza únicamente datos ficticios y no ofrece diagnóstico, tratamiento ni atención de urgencia.
+
+Referencias técnicas: [trabajo persistente en Android](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started), [permiso de notificaciones](https://developer.android.com/develop/ui/compose/notifications/notification-permission) y [almacenamiento SQLite](https://developer.android.com/training/data-storage/sqlite).
+
+Equipo académico: Aníbal Romero, Luis Ahumada, Sebastián Cortés y Cristian Villavicencio.

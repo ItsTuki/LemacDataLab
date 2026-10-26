@@ -1,0 +1,98 @@
+[
+  {
+    "id": "nd-pausa",
+    "ambito": "NEURODESARROLLO",
+    "tipo": "ESTRATEGIA",
+    "titulo": "Pausa planificada",
+    "contenido": "Ejemplo de prueba: anota una pausa en una tarea ficticia y registra cómo percibiste el resultado.",
+    "eliminado": false
+  },
+  {
+    "id": "nd-organizar",
+    "ambito": "NEURODESARROLLO",
+    "tipo": "ESTRATEGIA",
+    "titulo": "Organizar pasos",
+    "contenido": "Ejemplo de prueba: divide una rutina ficticia en pasos y registra qué parte realizaste.",
+    "eliminado": false
+  },
+  {
+    "id": "nd-texto",
+    "ambito": "NEURODESARROLLO",
+    "tipo": "TEXTO",
+    "titulo": "Rutinas y contexto",
+    "contenido": "Este módulo organiza autorreportes de rutinas, tareas y situaciones de sobrecarga. La intensidad y el resultado expresan la percepción del usuario de prueba.",
+    "eliminado": false
+  },
+  {
+    "id": "dbt-atencion",
+    "ambito": "DBT",
+    "tipo": "HABILIDAD",
+    "titulo": "Atención plena",
+    "contenido": "Entrada ilustrativa del catálogo académico: registra una práctica de atención y una emoción o situación ficticia. Puntúa su utilidad percibida. El contenido requiere revisión del responsable de contenidos.",
+    "eliminado": false
+  },
+  {
+    "id": "dbt-regulacion",
+    "ambito": "DBT",
+    "tipo": "HABILIDAD",
+    "titulo": "Regulación emocional",
+    "contenido": "Entrada ilustrativa: registra la habilidad practicada, la emoción o situación y la utilidad que percibió el usuario de prueba.",
+    "eliminado": false
+  },
+  {
+    "id": "dbt-tolerancia",
+    "ambito": "DBT",
+    "tipo": "HABILIDAD",
+    "titulo": "Tolerancia al malestar",
+    "contenido": "Entrada ilustrativa del catálogo DBT para probar el diario de habilidades. Usa una situación sintética y registra intensidad y utilidad percibida.",
+    "eliminado": false
+  },
+  {
+    "id": "animo-texto",
+    "ambito": "ANIMO",
+    "tipo": "TEXTO",
+    "titulo": "Cómo leer tus check-ins",
+    "contenido": "Cada check-in contiene una categoría, intensidad, contexto y nota opcional. El historial permite observar las anotaciones del periodo. Las escalas son de autorreporte y no son resultados clínicos.",
+    "eliminado": false
+  },
+  {
+    "id": "animo-ejercicio",
+    "ambito": "ANIMO",
+    "tipo": "EJERCICIO",
+    "titulo": "Un check-in de prueba",
+    "contenido": "Usa un escenario ficticio, elige una categoría de ánimo y una intensidad del 1 al 5. Añade un contexto y guarda. Luego comprueba el registro en el historial.",
+    "eliminado": false
+  },
+  {
+    "id": "animo-categorias",
+    "ambito": "ANIMO",
+    "tipo": "PARAMETRO",
+    "titulo": "Categorías de ánimo",
+    "contenido": "Muy bajo\nBajo\nNeutral\nBueno\nMuy bueno",
+    "eliminado": false
+  },
+  {
+    "id": "ad-pausa",
+    "ambito": "ADICCIONES",
+    "tipo": "ACCION",
+    "titulo": "Hacer una pausa",
+    "contenido": "Acción de ejemplo del catálogo sintético. Permite probar el registro de un impulso, su desencadenante y el resultado percibido.",
+    "eliminado": false
+  },
+  {
+    "id": "ad-contacto",
+    "ambito": "ADICCIONES",
+    "tipo": "ACCION",
+    "titulo": "Contactar apoyo de prueba",
+    "contenido": "Acción ficticia para demostrar el registro. No se realizan llamadas ni se almacenan datos de contacto.",
+    "eliminado": false
+  },
+  {
+    "id": "ad-objetivo",
+    "ambito": "ADICCIONES",
+    "tipo": "TEXTO",
+    "titulo": "Objetivos de prueba",
+    "contenido": "Define una meta de registros con resultado «Resistí». El progreso cuenta únicamente registros propios asociados a ese objetivo. También puedes indicar su estado de forma manual.",
+    "eliminado": false
+  }
+]
