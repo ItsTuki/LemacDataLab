@@ -13,3 +13,7 @@
 .externalNativeBuild
 .cxx
 local.properties
+backend/__pycache__/
+backend/*.sqlite3
+backend/*.sqlite3-*
+backend/tmp*/
